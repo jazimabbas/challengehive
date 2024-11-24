@@ -17,10 +17,10 @@ import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/componen
 
 export const Playground = () => {
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex h-full flex-col overflow-hidden">
       <Header />
 
-      <div className="h-full p-2 pt-0">
+      <div className="p-2 pt-0" style={{ height: "calc(100% - 48px)" }}>
         <ResizableSection />
       </div>
     </div>
