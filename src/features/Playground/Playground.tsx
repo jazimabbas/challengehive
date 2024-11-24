@@ -7,11 +7,15 @@ import {
   SettingsIcon,
 } from "lucide-react";
 
+import { CodeEditor } from "./components/CodeEditor";
+import { ProblemDescription } from "./components/ProblemDescription";
+import { Result } from "./components/Result";
+
 import { Hint } from "@/components/Hint";
 import { Button } from "@/components/ui/button";
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
 
-export const CodeEditor = () => {
+export const Playground = () => {
   return (
     <div className="flex h-full flex-col">
       <Header />
@@ -73,25 +77,19 @@ const Header = () => {
 
 const ResizableSection = () => {
   return (
-    <ResizablePanelGroup className="h-full rounded-lg border" direction="horizontal">
+    <ResizablePanelGroup className="h-full" direction="horizontal">
       <ResizablePanel defaultSize={50}>
-        <div className="flex h-full items-center justify-center overflow-auto p-6">
-          <span className="font-semibold">Problem Description</span>
-        </div>
+        <ProblemDescription />
       </ResizablePanel>
       <ResizableHandle withHandle />
       <ResizablePanel defaultSize={50}>
         <ResizablePanelGroup direction="vertical">
           <ResizablePanel defaultSize={50}>
-            <div className="flex h-full items-center justify-center overflow-auto p-6">
-              <span className="font-semibold">Playground</span>
-            </div>
+            <CodeEditor />
           </ResizablePanel>
           <ResizableHandle withHandle />
           <ResizablePanel defaultSize={50}>
-            <div className="flex h-full items-center justify-center overflow-auto p-6">
-              <span className="font-semibold">Results</span>
-            </div>
+            <Result />
           </ResizablePanel>
         </ResizablePanelGroup>
       </ResizablePanel>

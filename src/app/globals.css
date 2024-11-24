@@ -41,6 +41,8 @@ body {
     --radius: 0.5rem;
   }
   .dark {
+    --tabset-background: 0 0% 15%;
+    --tabset-header-background: 0 0% 20%;
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
     --card: 240 10% 3.9%;

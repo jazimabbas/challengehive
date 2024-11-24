@@ -37,8 +37,8 @@ const ResizableHandle = ({
       `
         relative flex
         w-[${SIZE}]
-        items-center justify-center
-        bg-border
+        items-center
+        justify-center
         [&[data-panel-group-direction=vertical]>div]:rotate-90
         after:absolute
         after:inset-y-0 after:left-1/2 after:w-1

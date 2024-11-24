@@ -1,9 +1,9 @@
-import { CodeEditor } from "@/features/CodeEditor";
+import { Playground } from "@/features/Playground";
 
 export default function Home() {
   return (
     <div className="h-[100vh]">
-      <CodeEditor />
+      <Playground />
     </div>
   );
 }

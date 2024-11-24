@@ -6,6 +6,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        tabset: "hsl(var(--tabset-background))",
+        "tabset-header": "hsl(var(--tabset-header-background))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
