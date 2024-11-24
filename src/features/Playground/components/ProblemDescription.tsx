@@ -8,6 +8,12 @@ import {
 } from "lucide-react";
 
 import { Difficulty } from "@/components/Difficulty";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -23,6 +29,7 @@ export const ProblemDescription = () => {
         <p className="text-xl font-bold">1. Two Sum</p>
         <Badges />
         <SummaryContent />
+        <AccordianItems />
       </div>
     </div>
   );
@@ -120,3 +127,34 @@ const SummaryContent = () => {
     </div>
   );
 };
+
+const AccordianItems = () => {
+  return (
+    <Accordion type="multiple">
+      <AccordionItem value="topics">
+        <AccordionTrigger>
+          <TriggerContent icon={TagIcon} label="Topics" />
+        </AccordionTrigger>
+        <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="hint1">
+        <AccordionTrigger>
+          <TriggerContent icon={LightbulbIcon} label="Hint 1" />
+        </AccordionTrigger>
+        <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="hint2">
+        <AccordionTrigger>
+          <TriggerContent icon={LightbulbIcon} label="Hint 2" />
+        </AccordionTrigger>
+        <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  );
+};
+
+const TriggerContent = ({ icon: Icon, label }: { icon: any; label: string }) => (
+  <div className="flex items-center gap-2">
+    <Icon size={15} /> {label}
+  </div>
+);
