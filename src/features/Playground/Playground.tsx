@@ -10,6 +10,12 @@ import {
 import { CodeEditor } from "./components/CodeEditor";
 import { ProblemDescription } from "./components/ProblemDescription";
 import { Result } from "./components/Result";
+import {
+  EditorPanel,
+  ResizableProvider,
+  SummaryPanel,
+  TerminalPanel,
+} from "./context/ResizableProvider";
 
 import { Hint } from "@/components/Hint";
 import { Button } from "@/components/ui/button";
@@ -77,22 +83,24 @@ const Header = () => {
 
 const ResizableSection = () => {
   return (
-    <ResizablePanelGroup className="h-full" direction="horizontal">
-      <ResizablePanel defaultSize={50}>
-        <ProblemDescription />
-      </ResizablePanel>
-      <ResizableHandle withHandle />
-      <ResizablePanel defaultSize={50}>
-        <ResizablePanelGroup direction="vertical">
-          <ResizablePanel defaultSize={50}>
-            <CodeEditor />
-          </ResizablePanel>
-          <ResizableHandle withHandle />
-          <ResizablePanel defaultSize={50}>
-            <Result />
-          </ResizablePanel>
-        </ResizablePanelGroup>
-      </ResizablePanel>
-    </ResizablePanelGroup>
+    <ResizableProvider>
+      <ResizablePanelGroup className="h-full" direction="horizontal">
+        <SummaryPanel>
+          <ProblemDescription />
+        </SummaryPanel>
+        <ResizableHandle withHandle />
+        <ResizablePanel defaultSize={50}>
+          <ResizablePanelGroup direction="vertical">
+            <EditorPanel>
+              <CodeEditor />
+            </EditorPanel>
+            <ResizableHandle withHandle />
+            <TerminalPanel>
+              <Result />
+            </TerminalPanel>
+          </ResizablePanelGroup>
+        </ResizablePanel>
+      </ResizablePanelGroup>
+    </ResizableProvider>
   );
 };
