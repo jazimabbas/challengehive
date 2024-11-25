@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 
 import { Difficulty } from "@/components/Difficulty";
+import { Hint } from "@/components/Hint";
 import {
   Accordion,
   AccordionContent,
@@ -16,6 +17,7 @@ import {
 } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export const ProblemDescription = () => {
   return (
@@ -38,21 +40,38 @@ export const ProblemDescription = () => {
 const Tabbar = () => {
   return (
     <div className="absolute flex h-[40px] w-full flex-nowrap overflow-x-auto bg-tabset-header p-1">
-      <Button size="sm" variant="ghost">
-        <FileIcon className="text-blue-500" /> Description
-      </Button>
-      <Button size="sm" variant="ghost">
-        <FireExtinguisherIcon className="text-blue-500" /> Solution
-      </Button>
+      <TabButton isActive icon={FileIcon} label="Description" />
+      <TabButton icon={FireExtinguisherIcon} label="Solution" />
+
       <div className="absolute right-0 bg-tabset-header/50">
-        <Button size="sm" variant="ghost">
-          <MaximizeIcon />
-        </Button>
-        <Button size="sm" variant="ghost">
-          <ChevronLeftIcon />
-        </Button>
+        <Hint label="Maximize">
+          <Button size="sm" variant="ghost">
+            <MaximizeIcon />
+          </Button>
+        </Hint>
+        <Hint label="Fold">
+          <Button size="sm" variant="ghost">
+            <ChevronLeftIcon />
+          </Button>
+        </Hint>
       </div>
     </div>
+  );
+};
+
+const TabButton = ({
+  icon: Icon,
+  isActive = false,
+  label,
+}: {
+  icon: any;
+  isActive?: boolean;
+  label: string;
+}) => {
+  return (
+    <Button className={cn(isActive && "font-semibold")} size="sm" variant="ghost">
+      <Icon className="text-blue-500" /> {label}
+    </Button>
   );
 };
 
