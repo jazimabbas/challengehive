@@ -131,25 +131,52 @@ const SummaryContent = () => {
 const AccordianItems = () => {
   return (
     <Accordion type="multiple">
-      <AccordionItem value="topics">
-        <AccordionTrigger>
-          <TriggerContent icon={TagIcon} label="Topics" />
-        </AccordionTrigger>
-        <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
-      </AccordionItem>
+      <Topics />
+      <Hints />
+    </Accordion>
+  );
+};
+
+const Topics = () => {
+  return (
+    <AccordionItem value="topics">
+      <AccordionTrigger>
+        <TriggerContent icon={TagIcon} label="Topics" />
+      </AccordionTrigger>
+      <AccordionContent className="flex gap-2">
+        <Badge>Array</Badge>
+        <Badge>Hash Table</Badge>
+      </AccordionContent>
+    </AccordionItem>
+  );
+};
+
+const Hints = () => {
+  return (
+    <>
       <AccordionItem value="hint1">
         <AccordionTrigger>
           <TriggerContent icon={LightbulbIcon} label="Hint 1" />
         </AccordionTrigger>
-        <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
+        <AccordionContent>
+          A really brute force way would be to search for all possible pairs of numbers but that
+          would be too slow. Again, its best to try out brute force solutions for just for
+          completeness. It is from these brute force solutions that you can come up with
+          optimizations.
+        </AccordionContent>
       </AccordionItem>
       <AccordionItem value="hint2">
         <AccordionTrigger>
           <TriggerContent icon={LightbulbIcon} label="Hint 2" />
         </AccordionTrigger>
-        <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
+        <AccordionContent>
+          A really brute force way would be to search for all possible pairs of numbers but that
+          would be too slow. Again, its best to try out brute force solutions for just for
+          completeness. It is from these brute force solutions that you can come up with
+          optimizations.
+        </AccordionContent>
       </AccordionItem>
-    </Accordion>
+    </>
   );
 };
 
